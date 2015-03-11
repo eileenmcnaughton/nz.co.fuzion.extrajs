@@ -119,6 +119,7 @@ function extrajs_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
 function extrajs_civicrm_buildForm($formName, &$form) {
   $whiteList = array(
     'CRM_Contribute_Form_Contribution_Main',
+    'CRM_Contribute_Form_Contribution_ThankYou',
   );
   if (!in_array($formName, $whiteList)) {
     // We don't have a strong reason for the whitelist approach
@@ -157,16 +158,4 @@ function extrajs_civicrm_buildForm($formName, &$form) {
 
 }
 
-
-/**
- * Implements hook_civicrm_preProcess().
- *
- * @link http://wiki.civicrm.org/confluence/display/CRMDOC/hook_civicrm_preProcess
- */
-function extrajs_civicrm_preProcess($formName, &$form) {
-  dpm($formName);
-  echo $formName;die;
-  drupal_set_message('hi');
-
-}
 
