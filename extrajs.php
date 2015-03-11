@@ -134,7 +134,7 @@ function extrajs_civicrm_buildForm($formName, &$form) {
   if (empty($fileLocations[1])) {
     return;
   }
-
+  $id = $form->get('id') ? $form->get('id') : $form->_id;
   $formNameParts = explode('_', $formName);
   $fileName = array_pop($formNameParts);
   $filePath
@@ -147,7 +147,7 @@ function extrajs_civicrm_buildForm($formName, &$form) {
 
   $fileNames = array(
     $filePath . DIRECTORY_SEPARATOR . $fileName . '.js',
-    $filePath . DIRECTORY_SEPARATOR . $form->get('id') . DIRECTORY_SEPARATOR . $fileName . '.js',
+    $filePath . DIRECTORY_SEPARATOR . $id . DIRECTORY_SEPARATOR . $fileName . '.js',
   );
 
   foreach ($fileNames as $fileName) {
